@@ -1,57 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-        }
-        .about-section {
-            padding: 60px 0;
-            background-color: #f8f9fa;
-        }
-        .about-image {
-            width: 165px;
-			height: 220px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-        }
-    </style>
-</head>
-<body>
-    <!-- Main Container -->
-    <div class="container">
-        <!-- Content will go here -->
-    </div>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
-
-
-
-<!-- About Section -->
-<section id='about' class="about-section text-center">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <img src="images/about/profile.png" alt="Your Picture" class="about-image">
-            <h2>ABOUT ME</h2>
-            <p class="lead">I am a passionate Data Scientist with experience in machine learning, data visualization, and statistical analysis. My goal is to leverage data to solve complex problems and drive informed decision-making.</p>
-        </div>
-    </div>
-</section>
-
-
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,22 +8,356 @@
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
     <style>
         body {
             font-family: 'Arial', sans-serif;
-        }
-        .about-section {
-            padding: 60px 0;
             background-color: #f8f9fa;
         }
-        .about-image {
-            width: 165px;
-			height: 220px;
-            border-radius: 50%;
-            margin-bottom: 20px;
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
         }
-		.project-card {
+
+        h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 40px;
+        }
+		
+		.navbar-custom {
+            background-color: #343a40; /* Dark background for the navbar */
+            position: fixed; /* Fix the navbar at the top */
+            top: 0;
+            width: 100%; /* Make sure it spans the entire width of the page */
+            z-index: 1000;
+        }
+	</style>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Navigation Bar</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Navigation Bar */
+		
+		
+		/* default state */
+		.navbar {
+			position: relative;
+			/* default colors + transition */
+			background-color: white;
+			color: black;
+			transition: all 0.3s ease-out;
+		}
+			
+		/* scrolling state */
+		.navbar.fixed-top {
+			position: fixed;
+			top: 0;
+			width: 100%;
+			/* scrolling colors */
+			background-color: black;
+			color: white;
+		}
+			
+		.navbar.fixed-top a {
+			color: white;
+		}
+		
+		
+		
+		
+		
+        .navbar-custom {
+            background-color: #343a40; /* Dark background for the navbar */
+            position: sticky;
+			overflow: hidden;
+            top: 0;
+			width: 100%;
+			height: 53px;
+            z-index: 1000;
+        }
+		
+        .navbar-brand img {
+            width: 25px; /* Adjust size of the home icon */
+            height: 25px;
+        }
+
+        .navbar-nav {
+            margin-left: auto; /* Push links to the right */
+        }
+
+        .nav-link {
+            color: #fff !important;
+            padding: 10px 15px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ffd700 !important; /* Change to golden color on hover */
+        }
+
+        .navbar-brand {
+            margin-right: auto; /* Keeps the home icon on the extreme left */
+        }
+
+        /* Adjust the scroll offset to align sections correctly */
+        section {
+            scroll-margin-top: 80px; /* Adjust if the navbar height changes */
+        }
+
+        .about-section {
+            padding-top: 60px; /* Ensure content doesn't get hidden under the navbar */
+        }
+
+        /* Contact Me Section */
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto; /* Center the icons within the column */
+            border: 4px solid #c50000; /* Thicker circular border */
+            border-radius: 50%; /* Make it circular */
+            background-color: #ffffff; /* Background color of the icon */
+            color: #c50000; /* Initial icon color */
+            text-decoration: none; /* Remove underline from links */
+            transition: all 0.3s ease-in-out; /* Smooth transition */
+        }
+
+        .contact-icon i {
+            font-size: 24px; /* Size of the icons */
+        }
+
+        .contact-icon:hover {
+            transform: scale(1.1); /* Slightly enlarge the icon on hover */
+        }
+        
+        /* Add a smooth scroll effect */
+        html {
+            scroll-behavior: smooth;
+        }
+		
+		body {
+            padding-top: 80px; /* Prevent content from hiding under the fixed navbar */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="images/navigation/home.png" alt="Home Icon">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="all-projects.html">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#work-experience">Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#awards">Awards</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#certifications">Certifications</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<script>
+document.addEventListener("scroll", function () {
+  const navbar = document.querySelector(".navbar");
+  const navbarHeight = 100;
+
+  const distanceFromTop = Math.abs(
+    document.body.getBoundingClientRect().top
+  );
+
+  if (distanceFromTop >= navbarHeight) navbar.classList.add("fixed-top");
+  else navbar.classList.remove("fixed-top");
+});
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me Section</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* ABOUT ME Section Styling */
+        .about-me-section {
+            display: flex;
+            align-items: center;
+            padding: 60px 20px;
+            background: linear-gradient(to right, #6a11cb, #2575fc),
+            url('images/backgrounds/about-bg.jpg') no-repeat center center/cover;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-me-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+            z-index: 0;
+        }
+
+        .about-me-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        .about-me-image {
+            width: 185px; 
+            height: 250px;
+            margin-right: 20px;
+            margin-bottom: 5px; 
+            border-radius: 50%;
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+            transition: transform 0.5s;
+            animation: about-me-fadeInDown 1s ease-in-out;
+        }
+
+        .about-me-image:hover {
+            transform: scale(1.10);
+        }
+
+        .about-me-text-content {
+            flex: 1;
+            text-align: left;
+            padding: 0;
+            margin: 0;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .about-me-heading {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            display: inline-block;
+            padding-bottom: 5px;
+            color: #FFD700; /* Yellow/Golden color */
+            animation: about-me-fadeInDown 1.2s ease-in-out;
+        }
+
+        .about-me-paragraph {
+            margin: 5px 0;
+            font-size: 1em;
+            opacity: 0;
+        }
+
+        /* Animations */
+        @keyframes about-me-fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes about-me-fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ABOUT ME Section -->
+<section id='about' class="about-me-section">
+    <div class="about-me-content row">
+        <!-- Image Section -->
+        <div class="col-auto">
+            <img src="images/about/profile.png" alt="Your Picture" class="about-me-image">
+        </div>
+
+        <!-- Text Section -->
+        <div class="col about-me-text-content">
+            <h2 class="about-me-heading">Hi! I am K Sharanya.</h2>
+            <p class="about-me-paragraph" style="animation-delay: 1.5s;">I am a dedicated professional transitioning into the Data Science field, armed with an IBM Data Science Certification and hands-on experience in data science, machine learning, and deep learning projects. With a background in Oracle Database Administration, I have developed strong technical expertise in managing complex databases and optimizing performance.</p>
+
+            <p class="about-me-paragraph" style="animation-delay: 2.0s;">I thrive on learning, challenges, and innovative problem-solving. My commitment to making a meaningful impact drives my passion for collaboration, effective communication, and a proactive approach to success.</p>
+
+            <p class="about-me-paragraph" style="animation-delay: 2.0s;">Outside of my career, I am an award-winning Bharatnatyam and Western dancer with a deep love for dance, music, art, and craft. My analytical skills were recognized early on, ranking 22nd in national-level Abacus competitions. My diverse interests and accomplishments reflect my creativity, dedication, and determination in all I do.</p>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // JavaScript to trigger animations sequentially
+    document.addEventListener('DOMContentLoaded', function () {
+        const paragraphs = document.querySelectorAll('.about-me-paragraph');
+        paragraphs.forEach((p, index) => {
+            setTimeout(() => {
+                p.style.opacity = '1';
+                p.style.animation = 'about-me-fadeIn 1s ease-in-out forwards';
+            }, (index + 1) * 1000); // Delay each animation by 1 second more than the previous one
+        });
+    });
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Section</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+	/* Projects Main Page Custom Styling*/
+		.sixprojects-card {
 			position: relative;
 			overflow: hidden;
 			border-radius: 10px;
@@ -84,33 +367,37 @@
 			height: 100%;
 			transition: transform 0.3s ease;
 		}
-		.project-title {
+		
+		.sixprojects-title {
 			font-size: 18px;
 			font-weight: bold;
 			text-align: center;
 			margin-bottom: 15px;
 		}
-		.project-image-container {
+		
+		.sixprojects-image-container {
 			position: relative;
 			width: 100%;
 			height: 180px; /* Adjust height for images */
 			overflow: hidden;
 			margin-bottom: 15px; /* Space between the image and the button */
 		}
-		.project-image {
+		
+		.sixprojects-image {
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
 			transition: transform 0.3s ease;
 		}
-		.project-info {
+		
+		.sixprojects-info {
 			position: absolute;
 			top: 0;
 			left: 0;
 			right: 0;
 			bottom: 0;
-			background: rgba(255, 255, 255, 0.8); /* Lighter hover background */
-			color: #333; /* Darker text for contrast */
+			background: rgba(255, 255, 255, 0.7); /* Lighter hover background */
+			color: #191919; /* Darker text for contrast */
 			opacity: 0;
 			transition: opacity 0.3s ease;
 			display: flex;
@@ -118,39 +405,64 @@
 			align-items: center;
 			padding: 10px;
 		}
-		.project-image-container:hover .project-info {
+		
+		.sixprojects-image-container:hover .sixprojects-info {
 			opacity: 1;
 		}
-		.project-description {
+		
+		.sixprojects-description {
 			font-size: 14px;
 			text-align: center;
 		}
-        .btn-danger {
+
+        .sixprojects-view-project-container {
+            text-align: center;
             background-color: #dc3545;
-            border-color: #dc3545;
-            margin-top: 15px;
+			color: #fff;
         }
-        .btn-danger:hover {
-            background-color: #c82333;
-            border-color: #bd2130;
-        }
-        .view-all-container {
+		
+		.sixprojects-btn-danger {
+			background-color: #dc3545;
+			border-color: #dc3545;
+			margin-top: 15px;
+			color: #fff;
+		}
+		
+		.sixprojects-btn-danger:hover {
+			background-color: #c82333;
+			border-color: #bd2130;
+		}
+
+        .sixprojects-view-all-container {
             text-align: right;
             margin-top: 20px;
         }
-        .view-all-btn {
-            background-color: #000;
+
+        .sixprojects-view-all-btn {
+			background-color: #000;
             color: #fff;
             padding: 10px 20px;
             border-radius: 30px;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
+			transition: background-color 0.3s ease;
         }
-        .view-all-btn span {
+		
+		.sixprojects-view-all-btn span {
             margin-right: 10px;
         }
-        .view-all-btn .arrow {
+
+        .sixprojects-view-all-btn:hover {
+            background-color: #333;
+        }
+
+        .sixprojects-view-all-btn i {
+            margin-left: 10px;
+            font-size: 16px;
+        }
+		
+		.sixprojects-view-all-btn .arrow {
             background-color: #ccc;
             color: #000;
             padding: 10px;
@@ -158,116 +470,121 @@
             display: inline-flex;
             justify-content: center;
             align-items: center;
+			text-decoration: none;
         }
-        .view-all-btn:hover {
-            background-color: #333;
-        }
-        .view-all-btn:hover .arrow {
+		
+	    .sixprojects-view-all-btn:hover .arrow {
             background-color: #999;
-        }
+			text-decoration: none;
+		}
     </style>
 </head>
 <body>
-    <!-- Main Container -->
-    <div class="container">
-        <!-- Projects Section -->
-        <section id="projects" class="py-5">
-            <div class="container text-center">
-                <h2 class="mb-5">PROJECTS</h2>
-                <div class="row">
-                    <!-- First 6 Projects -->
-                    <!-- Project 1 -->
-                    <div class="col-md-4 mb-4">
-                        <div class="project-card">
-                            <h3 class="project-title">Cancer Cell Classification</h3>
-                            <div class="project-image-container">
-                                <img src="images/projects/1-cancer cell classification.jpeg" class="img-fluid project-image" alt="Cancer Cell Classification">
-                                <div class="project-info">
-                                    <p class="project-description">Used SVMs to classify human cell records as either benign or malignant. Trained and evaluated the model, compared different kernel functions, and used evaluation metrics like the Confusion Matrix, F1-Score, and Jaccard Index.</p>
-                                </div>
-                            </div>
-                            <a href="https://github.com/mathfanatic9/projects/tree/main/Cancer%20Cell%20Classification" target="_blank" class="btn btn-danger btn-block mt-2">View Project</a>
-                        </div>
-                    </div>
-                    <!-- Project 2 -->
-                    <div class="col-md-4 mb-4">
-                        <div class="project-card">
-                            <h3 class="project-title">Chest X-Ray Image Prediction</h3>
-                            <div class="project-image-container">
-                                <img src="images/projects/2-Chest X-Ray Image Prediction.jpeg" class="img-fluid project-image" alt="Chest X-Ray Image Prediction">
-                                <div class="project-info">
-                                    <p class="project-description">Used deep learning to predict pneumonia from chest X-ray images by utilizing the VGG16 architecture with transfer learning from ImageNet weights, achieving an accuracy of 91% on the validation set.</p>
-                                </div>
-                            </div>
-                            <a href="https://github.com/mathfanatic9/projects/tree/main/Chest%20X-ray%20prediction%20using%20Deep%20Learning" target="_blank" class="btn btn-danger btn-block mt-2">View Project</a>
-                        </div>
-                    </div>
-                    <!-- Project 3 -->
-                    <div class="col-md-4 mb-4">
-                        <div class="project-card">
-                            <h3 class="project-title">Customer Churn Prediction</h3>
-                            <div class="project-image-container">
-                                <img src="images/projects/3-Customer Churn Prediction.jpeg" class="img-fluid project-image" alt="Customer Churn Prediction">
-                                <div class="project-info">
-                                    <p class="project-description">Used Artificial Neural Network (ANN) and covered data preprocessing, model architecture, training, and evaluation steps, including the use of Keras for model training and seaborn for visualizing the confusion matrix.</p>
-                                </div>
-                            </div>
-                            <a href="https://github.com/mathfanatic9/projects/tree/main/Customer%20Churn%20Prediction" target="_blank" class="btn btn-danger btn-block mt-2">View Project</a>
-                        </div>
-                    </div>
-                    <!-- Project 4 -->
-                    <div class="col-md-4 mb-4">
-                        <div class="project-card">
-                            <h3 class="project-title">Customer Segmentation Classifier</h3>
-                            <div class="project-image-container">
-                                <img src="images/projects/4-Customer Segmentation Classifier.jpeg" class="img-fluid project-image" alt="Customer Segmentation Classifier">
-                                <div class="project-info">
-                                    <p class="project-description">Built a KNN classifier to predict customer segments for a telecommunications provider based on demographic data by data preprocessing, training the classifier, evaluating its accuracy, and using it for predictions. The model helped customize offers for individual customers.</p>
-                                </div>
-                            </div>
-                            <a href="https://github.com/mathfanatic9/projects/tree/main/Customer%20Segmentation%20Classifier" target="_blank" class="btn btn-danger btn-block mt-2">View Project</a>
-                        </div>
-                    </div>
-                    <!-- Project 5 -->
-                    <div class="col-md-4 mb-4">
-                        <div class="project-card">
-                            <h3 class="project-title">Drug Classification Project</h3>
-                            <div class="project-image-container">
-                                <img src="images/projects/5-Drug Classification.jpeg" class="img-fluid project-image" alt="Drug Classification">
-                                <div class="project-info">
-                                    <p class="project-description">Developed a Decision Tree classifier to predict the most suitable drug for patients based on their medical records. Trained the model based on historical patient data to identify patterns and make predictions.</p>
-                                </div>
-                            </div>
-                            <a href="https://github.com/mathfanatic9/projects/tree/main/Drug%20Classification%20using%20Decision%20Trees" target="_blank" class="btn btn-danger btn-block mt-2">View Project</a>
-                        </div>
-                    </div>
-                    <!-- Project 6 -->
-                    <div class="col-md-4 mb-4">
-                        <div class="project-card">
-                            <h3 class="project-title">Data Analytics of House Pricing</h3>
-                            <div class="project-image-container">
-                                <img src="images/projects/6-House Pricing Data Analysis.jpeg" class="img-fluid project-image" alt="Data Analytics of House Pricing">
-                                <div class="project-info">
-                                    <p class="project-description">Conducted data preprocessing and exploratory data analysis to gain insights into housing prices and the factors that affect them. Utilized various data visualization techniques to explore the distribution of house prices, correlations between variables, and geographical trends.</p>
-                                </div>
-                            </div>
-                            <a href="https://github.com/mathfanatic9/projects/tree/main/House%20Price%20Prediction%20with%20Regression" target="_blank" class="btn btn-danger btn-block mt-2">View Project</a>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- View All Button -->
-                <div class="view-all-container">
-                    <a href="all-projects.html" class="view-all-btn">
-                        <span>View All</span>
-                        <div class="arrow">
-                            <i class="bi bi-arrow-right"></i>
+<!-- Projects Section -->
+<section id="projects" class="projects-section">
+    <div class="container">
+        <h2 class="projects-title">PROJECTS</h2>
+        <div class="row">
+            <!-- Project 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="sixprojects-card">
+                    <h3 class="sixprojects-title">Cancer Cell Classification</h3>
+                    <div class="sixprojects-image-container">
+                        <img src="images/projects/1-cancer cell classification.jpeg" class="img-fluid sixprojects-image" alt="Cancer Cell Classification">
+                        <div class="sixprojects-info">
+                            <p class="sixprojects-description">Used SVMs to classify human cell records as either benign or malignant. Trained and evaluated the model, compared different kernel functions, and used evaluation metrics like the Confusion Matrix, F1-Score, and Jaccard Index.</p>
                         </div>
-                    </a>
+                    </div>
+					<div class="sixprojects-view-project-container">
+                    <a href="https://github.com/mathfanatic9/projects/tree/main/Cancer%20Cell%20Classification" target="_blank" class="btn sixprojects-btn-danger btn-block mt-2">View Project</a>
+					</div>
                 </div>
             </div>
-        </section>
+            <!-- Project 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="sixprojects-card">
+                    <h3 class="sixprojects-title">Chest X-Ray Image Prediction</h3>
+                    <div class="sixprojects-image-container">
+                        <img src="images/projects/2-Chest X-Ray Image Prediction.jpeg" class="img-fluid sixprojects-image" alt="Chest X-Ray Image Prediction">
+                        <div class="sixprojects-info">
+                            <p class="sixprojects-description">Used deep learning to predict pneumonia from chest X-ray images by utilizing the VGG16 architecture with transfer learning from ImageNet weights, achieving an accuracy of 91% on the validation set.</p>
+                        </div>
+                    </div>
+                    <div class="sixprojects-view-project-container"> <a href="https://github.com/mathfanatic9/projects/tree/main/Chest%20X-ray%20prediction%20using%20Deep%20Learning" target="_blank" class="btn sixprojects-btn-danger btn-block mt-2">View Project</a>
+					</div>
+                </div>
+            </div>
+            <!-- Repeat for other projects as needed -->
+			<!-- Project 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="sixprojects-card">
+                    <h3 class="sixprojects-title">Customer Churn Prediction</h3>
+                    <div class="sixprojects-image-container">
+                        <img src="images/projects/3-Customer Churn Prediction.jpeg" class="img-fluid sixprojects-image" alt="Customer Churn Prediction">
+                        <div class="sixprojects-info">
+							<p class="sixprojects-description">Used Artificial Neural Network (ANN) and covered data preprocessing, model architecture, training, and evaluation steps, including the use of Keras for model training and seaborn for visualizing the confusion matrix.</p>
+						</div>
+					</div>
+                    <div class="sixprojects-view-project-container"> <a href="https://github.com/mathfanatic9/projects/tree/main/Customer%20Churn%20Prediction" target="_blank" class="btn sixprojects-btn-danger btn-block mt-2">View Project</a> </div>
+                </div>
+            </div>
+			            <!-- Project 4 -->
+            <div class="col-md-4 mb-4">
+                <div class="sixprojects-card">
+                    <h3 class="sixprojects-title">Customer Segmentation Classifier</h3>
+                    <div class="sixprojects-image-container">
+                        <img src="images/projects/4-Customer Segmentation Classifier.jpeg" class="img-fluid sixprojects-image" alt="Customer Segmentation Classifier">
+                        <div class="sixprojects-info">
+                            <p class="sixprojects-description">Built a KNN classifier to predict customer segments for a telecommunications provider based on demographic data by data preprocessing, training the classifier, evaluating its accuracy, and using it for predictions. The model helped customize offers for individual customers.</p>
+                        </div>
+                    </div>
+                    <div class="sixprojects-view-project-container"> <a href="https://github.com/mathfanatic9/projects/tree/main/Customer%20Segmentation%20Classifier" target="_blank" class="btn sixprojects-btn-danger btn-block mt-2">View Project</a> </div>
+                </div>
+            </div>
+						            <!-- Project 5 -->
+            <div class="col-md-4 mb-4">
+                <div class="sixprojects-card">
+                    <h3 class="sixprojects-title">Drug Classification Project</h3>
+                    <div class="sixprojects-image-container">
+                        <img src="images/projects/5-Drug Classification.jpeg" class="img-fluid sixprojects-image" alt="Drug Classification">
+                        <div class="sixprojects-info">
+                            <p class="sixprojects-description">Developed a Decision Tree classifier to predict the most suitable drug for patients based on their medical records. Trained the model based on historical patient data to identify patterns and make predictions.</p>
+                        </div>
+                    </div>
+                    <div class="sixprojects-view-project-container"> <a href="https://github.com/mathfanatic9/projects/tree/main/Drug%20Classification%20using%20Decision%20Trees" target="_blank" class="btn sixprojects-btn-danger btn-block mt-2">View Project</a> </div>
+                </div>
+            </div>
+			            <!-- Project 6 -->
+            <div class="col-md-4 mb-4">
+                <div class="sixprojects-card">
+                    <h3 class="sixprojects-title">Data Analytics of House Pricing</h3>
+                    <div class="sixprojects-image-container">
+                        <img src="images/projects/6-House Pricing Data Analysis.jpeg" class="img-fluid sixprojects-image" alt="House Pricing Data Analysis">
+                        <div class="sixprojects-info">
+                            <p class="sixprojects-description">Analyzed and predicted house prices in King County, USA, by using data wrangling, exploratory data analysis, and building regression models. The models were evaluated using R-squared and cross-validation scores.</p>
+                        </div>
+                    </div>
+                    <div class="sixprojects-view-project-container"> <a href="https://github.com/mathfanatic9/projects/tree/main/Data%20Analytics%20of%20House%20Pricing" target="_blank" class="btn sixprojects-btn-danger btn-block mt-2">View Project</a> </div>
+                </div>
+            </div>			
+
+        <!-- View All Button -->
+        <div class="sixprojects-view-all-container">
+            <a href="all-projects.html" class="sixprojects-view-all-btn">
+                View All
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
     </div>
+</section>
+
+<!-- FontAwesome for Icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>
@@ -281,7 +598,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Work Experience</title>
     <style>
-        /* CSS Styling */
+        /* Work Experience CSS Styling */
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
@@ -289,106 +606,192 @@
             padding: 0;
         }
 
-        .container {
+        .work-exp-section {
+            background: linear-gradient(to right, #c711cb, #2575fc), url('path/to/your/background-image.jpg') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0;
+            color: #fff;
+            text-align: left;
+        }
+
+        /* Overlay to darken the background for readability */
+        .work-exp-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .work-exp-container {
             width: 80%;
             margin: 0 auto;
             padding: 20px;
+            position: relative;
+            z-index: 2;
         }
 
-        h2 {
+        .work-exp-title {
             text-align: center;
-            font-size: 2em;
-            margin-bottom: 40px;
-        }
-
-        .company {
+            font-size: 2.0em;
             margin-bottom: 30px;
+            color: #FFD700; /* Golden color for the title */
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            animation: work-exp-fadeInDown 1s ease-in-out;
         }
 
-        .d-flex {
+        .work-exp-company {
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: work-exp-slideInUp 1s ease-in-out;
+        }
+
+        .work-exp-company:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .work-exp-flex {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .company-name {
+        .work-exp-company-name {
             font-weight: bold;
-            font-size: 1.2em;
+            font-size: 1.4em;
+            color: #FF6347; /* Tomato color for company name */
+            animation: work-exp-bounce 1s;
         }
 
-        .dates {
-            font-size: 0.9em;
-            color: #666;
-        }
-
-        .role {
+        .work-exp-dates {
             font-size: 1em;
+            color: #c9c9c9;
+        }
+
+        .work-exp-role {
+            font-size: 1.1em;
             font-weight: normal;
             cursor: pointer;
             margin-top: 5px;
-            color: #007bff;
+            color: #00CED1; /* Dark turquoise color for roles */
             margin-left: 20px;
+            transition: color 0.3s;
         }
 
-        .role:hover {
+        .work-exp-role:hover {
             text-decoration: underline;
+            color: #FFD700; /* Change to golden color on hover */
         }
 
-        .work-details {
+        .work-exp-details {
             display: none; /* Hide details by default */
             margin-top: 15px;
             margin-left: 20px;
+            animation: work-exp-fadeIn 0.5s ease-in-out;
         }
 
-        .work-details ul {
+        .work-exp-details ul {
             list-style-type: disc;
             padding-left: 20px;
+            color: #333;
         }
 
-        .work-details ul li {
+        .work-exp-details ul li {
             margin-bottom: 10px;
+        }
+
+        /* Animations */
+        @keyframes work-exp-fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes work-exp-slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes work-exp-bounce {
+            0%, 20%, 50% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes work-exp-fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body>
 
-<section id="work-experience" class="py-5">
-    <div class="container">
-        <h2>WORK EXPERIENCE</h2>
-
+<section id="work-experience" class="work-exp-section">
+    <div class="work-exp-container">
+        <h2 class="work-exp-title">WORK EXPERIENCE</h2>
         <!-- ORACLE FINANCIAL SERVICES SOFTWARE LIMITED -->
-        <div class="company">
-            <div class="d-flex">
-                <h4 class="company-name">ORACLE FINANCIAL SERVICES SOFTWARE LIMITED</h4>
-                <span class="dates">Aug ‘23 - Apr ’24</span>
+        <div class="work-exp-company">
+            <div class="work-exp-flex">
+                <h4 class="work-exp-company-name">ORACLE FINANCIAL SERVICES SOFTWARE LIMITED</h4>
+                <span class="work-exp-dates">Aug ‘23 - Apr ’24</span>
             </div>
-            <h5 class="role" onclick="toggleDetails(this)">ASSOCIATE CONSULTANT</h5>
-            <div class="work-details">
+            <h5 class="work-exp-role" onclick="toggleDetails(this)">ASSOCIATE CONSULTANT</h5>
+            <div class="work-exp-details">
                 <ul>
-                    <li>Facilitated critical datapatch deployments and provided support for EOD aborts in Flexcube v11.11, ensuring uninterrupted operations. </li>
-					<li>Monitored space utilization and database performance, and resolved archive log and database refresh issues. </li>
-					<li>Managed listener configurations, tablespaces, user accounts and lifecycle of Oracle Databases and Middleware. </li>
-					<li>Performed parameter modifications and backups, and worked with PL/SQL objects. </li>
+                    <li>Facilitated critical datapatch deployments and provided support for EOD aborts in Flexcube v11.11, ensuring uninterrupted operations.</li>
+                    <li>Monitored space utilization and database performance, and resolved archive log and database refresh issues.</li>
+                    <li>Managed listener configurations, tablespaces, user accounts, and lifecycle of Oracle Databases and Middleware.</li>
+                    <li>Performed parameter modifications and backups, and worked with PL/SQL objects.</li>
                 </ul>
             </div>
         </div>
 
         <!-- DXC TECHNOLOGY -->
-        <div class="company">
-            <div class="d-flex">
-                <h4 class="company-name">DXC TECHNOLOGY</h4>
-                <span class="dates">Jul ‘21 – Jul ’23</span>
+        <div class="work-exp-company">
+            <div class="work-exp-flex">
+                <h4 class="work-exp-company-name">DXC TECHNOLOGY</h4>
+                <span class="work-exp-dates">Jul ‘21 – Jul ’23</span>
             </div>
-            <h5 class="role" onclick="toggleDetails(this)">ORACLE DATABASE ADMINISTRATOR</h5>
-            <div class="work-details">
+            <h5 class="work-exp-role" onclick="toggleDetails(this)">ORACLE DATABASE ADMINISTRATOR</h5>
+            <div class="work-exp-details">
                 <ul>
-					<li>Established database synchronization and reconfigured dataguard. </li>
-					<li>Managed tablespaces, user accounts, created blackouts and executed database migrations and bounce activities. </li>
-					<li>Performed disk rebalancing, refresh activities for export and import scenarios and parameter modifications for optimal performance. </li>
+                    <li>Established database synchronization and reconfigured dataguard.</li>
+                    <li>Managed tablespaces, user accounts, created blackouts and executed database migrations and bounce activities.</li>
+                    <li>Performed disk rebalancing, refresh activities for export and import scenarios, and parameter modifications for optimal performance.</li>
                 </ul>
             </div>
         </div>
-
     </div>
 </section>
 
@@ -396,13 +799,13 @@
     // JavaScript for Toggle Functionality
     function toggleDetails(element) {
         const details = element.nextElementSibling;
-        
+
         if (details.style.display === "none" || details.style.display === "") {
             details.style.display = "block";
-            element.style.color = "#0056b3";
+            element.style.color = "#FFD700"; /* Change color to golden on toggle */
         } else {
             details.style.display = "none";
-            element.style.color = "#007bff";
+            element.style.color = "#00CED1"; /* Revert to original color */
         }
     }
 </script>
@@ -411,258 +814,143 @@
 </html>
 
 
-
-
-
-<!-- Skills Section -->
-<section id="skills" class="py-5">
-    <div class="container text-center">
-        <h2 class="mb-4">SKILLS</h2>
-        <div class="row">
-            <!-- Skill 1 -->
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-                <div class="skill-card p-3">
-                    <img src="images/skills/python.png" alt="Python" class="img-fluid mb-2">
-                    <p>Python</p>
-                </div>
-            </div>
-            <!-- Skill 2 -->
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-                <div class="skill-card p-3">
-                    <img src="images/skills/sql.png" alt="SQL" class="img-fluid mb-2">
-                    <p>SQL</p>
-                </div>
-            </div>
-            <!-- Skill 3 -->
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-                <div class="skill-card p-3">
-                    <img src="images/skills/mysql.png" alt="MySQL" class="img-fluid mb-2">
-                    <p>MySQL</p>
-                </div>
-            </div>
-            <!-- Skill 4 -->
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-                <div class="skill-card p-3">
-                    <img src="images/skills/data visualization.png" alt="Data Visualization" class="img-fluid mb-2">
-                    <p>Data Visualization</p>
-                </div>
-            </div>
-            <!-- Skill 5 -->
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-                <div class="skill-card p-3">
-                    <img src="images/skills/Data Analysis.png" alt="Data Analysis" class="img-fluid mb-2">
-                    <p>Data Analysis</p>
-                </div>
-            </div>
-            <!-- Skill 6 -->
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-                <div class="skill-card p-3">
-                    <img src="images/skills/Machine Learning.png" alt="Machine Learning" class="img-fluid mb-2">
-                    <p>Machine Learning</p>
-                </div>
-            </div>
-            <!-- Skill 7 -->
-			<div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-                <div class="skill-card p-3">
-                    <img src="images/skills/Deep Learning.png" alt="Deep Learning" class="img-fluid mb-2">
-                    <p>Deep Learning</p>
-                </div>
-            </div>
-            <!-- Skill 8 -->
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-                <div class="skill-card p-3">
-                    <img src="images/skills/Natural Language Processing.png" alt="Natural Language Processing" class="img-fluid mb-2">
-                    <p>Natural Language Processing</p>
-                </div>
-            </div>
-            <!-- Skill 9 -->
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-                <div class="skill-card p-3">
-                    <img src="images/skills/Microsoft Office.png" alt="Microsoft Office" class="img-fluid mb-2">
-                    <p>Microsoft Office</p>
-                </div>
-            </div>
-            <!-- Skill 10 -->
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-                <div class="skill-card p-3">
-                    <img src="images/skills/Oracle Database Administration.png" alt="Oracle Database Administration" class="img-fluid mb-2">
-                    <p>Oracle Database Administration</p>
-                </div>
-            </div>
-            <!-- Skill 11 -->
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-                <div class="skill-card p-3">
-                    <img src="images/skills/Mathematics.png" alt="Mathematics" class="img-fluid mb-2">
-                    <p>Mathematics</p>
-                </div>
-            </div>
-            <!-- Skill 12 -->
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-                <div class="skill-card p-3">
-                    <img src="images/skills/Statistics.png" alt="Statistics" class="img-fluid mb-2">
-                    <p>Statistics</p>
-                </div>
-            </div>
-            <!-- Add more skills as needed -->
-        </div>
-    </div>
-</section>
-
-<!-- Custom CSS for Skills Section -->
 <style>
-.skill-card {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.2s;
-}
+<!-- /* SKILLS SECTION STYLING */ -->
+	.skills-section {
+		background-color: #dcf4f6;
+		background-size: cover;
+		padding: 60px 0; /* Reduced padding to shorten the overall section length */
+		color: #fdef41;
+		text-align: center;
+	}
+	
+	.skills-title {
+		font-family: 'Poppins', sans-serif;
+		font-size: 36px;
+		font-weight: 700;
+		text-transform: uppercase;
+		margin-bottom: 40px;
+		text-shadow: 1px 1px 2px rgba(181, 0, 0, 0.77);
+	}
+	
+	.skill-card {
+		background: rgba(255, 255, 255, 0.85);
+		border: none;
+		border-radius: 10px;
+		box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		text-align: center;
+		padding: 10px; /* Reduced padding for smaller boxes */
+		width: 100%; /* Full width within the column */
+		max-width: 150px; /* Ensures cards are equal in size */
+		height: 180px; /* Fixed height for equal card sizing */
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin: 0 auto; /* Center-align each card */
+	}
+	
+	.skill-card img {
+		height: 75px; /* Adjusted icon size */
+		margin-bottom: 8px;
+		object-fit: contain;
+	}
+	
+	.skill-card p {
+		margin: 0;
+		font-size: 15px; /* Reduced font size */
+		font-weight: 600;
+		color: #333;
+	}
+	
+	/* Responsive styling to ensure 6 skills per row on larger screens */
+	@media (min-width: 992px) {
+		.skill-card-container {
+			display: grid;
+			grid-template-columns: repeat(6, 1fr);
+			gap: 15px;
+		}
+	}
+	
+	/* Hover Effect */
+	.skill-card:hover {
+		transform: translateY(-5px) scale(1.05);
+		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+	}
 
-.skill-card img {
-    width: 50px;
-    height: 50px;
-}
-
-.skill-card p {
-    margin-top: 10px;
-    font-weight: 500;
-}
-
-.skill-card:hover {
-    transform: translateY(-10px);
-}
-
-@media (min-width: 768px) {
-    .skill-card {
-        margin-bottom: 30px;
-    }
-}
 </style>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Awards Section</title>
-    <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        h2 {
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 40px;
-        }
-
-        /* AWARDS Section Styles */
-        .awards-container {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .award {
-            flex: 1;
-            padding: 20px;
-            background-color: #e9ecef;
-            border-radius: 8px;
-            text-align: center;
-            margin-bottom: 20px;
-            max-width: 48%;
-        }
-
-        .award-title {
-            font-size: 1.5em;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .award-subtitle {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-            color: #6c757d;
-        }
-
-        .award-keypoints {
-            font-size: 1em;
-            margin-bottom: 20px;
-            text-align: left;
-            color: #343a40;
-        }
-
-        .certificate-container {
-            position: relative;
-            cursor: pointer;
-        }
-
-        .certificate-link {
-            display: inline-block;
-            margin-top: 10px;
-            font-size: 1em;
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        .certificate-link:hover {
-            text-decoration: underline;
-        }
-
-    </style>
-</head>
-<body>
-
-<section id="awards" class="py-5">
-    <div class="container">
-        <h2>AWARDS</h2>
-
-        <div class="awards-container">
-            <!-- DXC Champs Award -->
-            <div class="award">
-                <div class="award-title">Q1 FY23 - DXC Champs Award</div>
-                <div class="award-subtitle">Your hard work is helping us delight customers...</div>
-                <div class="award-keypoints">
-                    <p>Your hard work is helping us delight customers, drive growth, and establish DXC Technology as the world’s leading IT company.</p>
-                    <p>Thank you for your contributions.</p>
-                    <p>Cheers! <br>— Lokendra Sethi, Vice President, Human Resources — India</p>
-                </div>
-                <div class="certificate-container">
-                    <a href="images/awards/Q1 FY23 DXC Champs Award.pdf" target="_blank" class="certificate-link">View Certificate (PDF)</a>
-                </div>
+<!-- SKILLS Section -->
+<section id="skills" class="skills-section">
+    <div class="container text-center">
+        <h2 class="skills-title">SKILLS</h2>
+        <div class="skill-card-container">
+            <!-- Skill 1 -->
+            <div class="skill-card">
+                <img src="images/skills/python.png" alt="Python">
+                <p>Python</p>
             </div>
-
-            <!-- DXC Collaborators Award -->
-            <div class="award">
-                <div class="award-title">H1 FY23 - DXC Collaborators Award</div>
-                <div class="award-subtitle">This certificate is presented to you for being a great team player...</div>
-                <div class="award-keypoints">
-                    <p>This certificate is presented to you for being a great team player.</p>
-                    <p>Your collaboration is helping us delight customers, drive growth, and establish DXC Technology as the world’s leading IT company.</p>
-                    <p>Thank you for your contributions.</p>
-                    <p>Cheers! <br>— Lokendra Sethi, Vice President, Human Resources — India</p>
-                </div>
-                <div class="certificate-container">
-                    <a href="images/awards/H1 FY23 DXC Collaborators Award.pdf" target="_blank" class="certificate-link">View Certificate (PDF)</a>
-                </div>
+            <!-- Skill 2 -->
+            <div class="skill-card">
+                <img src="images/skills/sql.png" alt="SQL">
+                <p>SQL</p>
+            </div>
+            <!-- Skill 3 -->
+            <div class="skill-card">
+                <img src="images/skills/mysql.png" alt="MySQL">
+                <p>MySQL</p>
+            </div>
+            <!-- Skill 4 -->
+            <div class="skill-card">
+                <img src="images/skills/data visualization.png" alt="Data Visualization">
+                <p>Data Visualization</p>
+            </div>
+            <!-- Skill 5 -->
+            <div class="skill-card">
+                <img src="images/skills/Data Analysis.png" alt="Data Analysis">
+                <p>Data Analysis</p>
+            </div>
+            <!-- Skill 6 -->
+            <div class="skill-card">
+                <img src="images/skills/Machine Learning.png" alt="Machine Learning">
+                <p>Machine Learning</p>
+            </div>
+            <!-- Skill 7 -->
+            <div class="skill-card">
+                <img src="images/skills/Deep Learning.png" alt="Deep Learning">
+                <p>Deep Learning</p>
+            </div>
+            <!-- Skill 8 -->
+            <div class="skill-card">
+                <img src="images/skills/Natural Language Processing.png" alt="Natural Language Processing">
+                <p>Natural Language Processing</p>
+            </div>
+            <!-- Skill 9 -->
+            <div class="skill-card">
+                <img src="images/skills/Oracle Database Administration.png" alt="Oracle Database Administration">
+                <p>Oracle Database Administration</p>
+            </div>
+            <!-- Skill 10 -->
+            <div class="skill-card">
+                <img src="images/skills/Microsoft Office.png" alt="Microsoft Office">
+                <p>Microsoft Office</p>
+            </div>
+            <!-- Skill 11 -->
+            <div class="skill-card">
+                <img src="images/skills/Mathematics.png" alt="Mathematics">
+                <p>Mathematics</p>
+            </div>
+            <!-- Skill 12 -->
+            <div class="skill-card">
+                <img src="images/skills/Statistics.png" alt="Statistics">
+                <p>Statistics</p>
             </div>
         </div>
     </div>
 </section>
 
-</body>
-</html>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -671,7 +959,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Certifications Section</title>
     <style>
-        /* General Styles */
+        /* Certifications Section General Styles */
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
@@ -717,37 +1005,387 @@
 </head>
 <body>
 
-<section id="certifications" class="py-5">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awards Section</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* AWARDS Section */
+        .awards-section {
+            padding: 60px 0;
+            background: linear-gradient(to right, #ff6065, #ffadaf, #ff6065), url('images/awards/awards-bg.jpg') no-repeat center center/cover;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .awards-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #fff;
+            text-shadow: 3px 3px 6px rgba(200, 33, 4, 0.93);
+            animation: awards-fadeIn 1s ease-in-out;
+        }
+
+        .awards-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: awards-popUp 1s ease-in-out forwards;
+            display: flex;
+            align-items: center;
+        }
+
+        .awards-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .awards-image {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .awards-content {
+            flex: 1;
+        }
+
+        .awards-title-text {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+            animation: awards-colorPulse 2s infinite;
+            animation-play-state: paused; /* Initially paused */
+        }
+
+        .awards-description {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+            animation: awards-pulse 2s infinite;
+            animation-play-state: paused; /* Initially paused */
+        }
+
+        .awards-btn-primary {
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+            border-radius: 20px;
+            padding: 8px 15px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .awards-btn-primary:hover {
+            background-color: #0056b3;
+            color: #c0c0c0; /* Change to white or silver */
+            text-decoration: none; /* Remove underline on hover */
+        }
+
+        .awards-btn-primary i {
+            font-size: 16px;
+        }
+
+        /* Animations */
+        @keyframes awards-fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes awards-popUp {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes awards-colorPulse {
+            0%, 100% {
+                color: #333;
+            }
+            50% {
+                color: #ff6065;
+            }
+        }
+
+        @keyframes awards-pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.03);
+                opacity: 0.65;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- AWARDS Section -->
+<section id="awards" class="awards-section">
     <div class="container">
-        <h2>CERTIFICATIONS</h2>
+        <h2 class="awards-title">AWARDS</h2>
 
-        <ul class="certifications-container">
-            <!-- IBM Data Science Professional -->
-            <li class="certification-item">
-                <a href="images/certifications/IBM Data Science Professional.pdf" target="_blank" class="certification-link">IBM Data Science Professional</a>
-            </li>
+        <!-- Award 1 -->
+        <div class="awards-card" style="animation-delay: 0s;">
+            <img src="images/awards/champ icon.png" class="awards-image" alt="Award Icon">
+            <div class="awards-content">
+                <h5 class="awards-title-text">DXC Champs Award</h5>
+                <p class="awards-description">Recognized for outstanding performance, impactful business outcomes, and exemplary leadership with innovative problem-solving skills.</p>
+            </div>
+            <a href="images/awards/Q1 FY23 DXC Champs Award.pdf" target="_blank" class="awards-btn-primary">
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
 
-            <!-- 1Z0-071 Oracle Database SQL Associate -->
-            <li class="certification-item">
-                <a href="images/certifications/1Z0-071 Oracle Database SQL Associate.pdf" target="_blank" class="certification-link">1Z0-071 Oracle Database SQL Associate</a>
-            </li>
-
-            <!-- 1Z0-1085-23 Oracle Cloud Infrastructure Foundations Associate -->
-            <li class="certification-item">
-                <a href="images/certifications/1Z0-1085-23 Oracle Cloud Infrastructure Foundations Associate.pdf" target="_blank" class="certification-link">1Z0-1085-23 Oracle Cloud Infrastructure Foundations Associate</a>
-            </li>
-        </ul>
+        <!-- Award 2 -->
+        <div class="awards-card" style="animation-delay: 0.3s;">
+            <img src="images/awards/champ icon.png" class="awards-image" alt="Award Icon">
+            <div class="awards-content">
+                <h5 class="awards-title-text">DXC Collaborators Award</h5>
+                <p class="awards-description">Recognized for exceptional teamwork, effective communication, and a commitment to fostering a collaborative work environment.</p>
+            </div>
+            <a href="images/awards/H1 FY23 DXC Collaborators Award.pdf" target="_blank" class="awards-btn-primary">
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
     </div>
 </section>
+
+<!-- FontAwesome for Icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<!-- JavaScript to Start and Stop Animations After 3 Seconds -->
+<script>
+    // Start the pulse animations on DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.awards-title-text, .awards-description').forEach(el => {
+            el.style.animationPlayState = 'running'; // Start the animation
+        });
+
+        // Stop the pulse animations after 3 seconds
+        setTimeout(() => {
+            document.querySelectorAll('.awards-title-text, .awards-description').forEach(el => {
+                el.style.animation = 'none'; // Stop the animation after 3 seconds
+            });
+        }, 3720); // in milliseconds
+    });
+</script>
+
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications Section</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Certifications Section */
+        .certifications-section {
+            padding: 60px 0;
+            background: linear-gradient(to right, #ffd700, #ffab60), url('images/certifications/cert-bg.jpg') no-repeat center center/cover;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certifications-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #fff;
+            text-shadow: 4px 4px 6px rgba(200, 33, 4, 0.01);
+            animation: certification-fadeIn 1s ease-in-out;
+        }
+
+        .certification-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: certification-popUp 1s ease-in-out forwards;
+            display: flex;
+            align-items: center;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .certification-content {
+            flex: 1;
+            margin-left: 15px;
+        }
+
+        .certification-title {
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            color: #333;
+        }
+
+        .certification-title:hover {
+            color: #007bff;
+        }
+
+        .certification-description {
+            display: none;
+            font-size: 14px;
+            margin-top: 10px;
+            color: #555;
+        }
+
+        .certification-btn-primary {
+            background-color: #28a745;
+            border: none;
+            color: #fff;
+            border-radius: 20px;
+            padding: 8px 15px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            margin-left: 10px;
+        }
+
+        .certification-btn-primary:hover {
+            background-color: #218838;
+			color: #fff; 
+            text-decoration: none; /* Remove underline on hover */
+        }
+
+        .certification-btn-primary i {
+            margin-left: 5px;
+            font-size: 16px;
+        }
+
+        /* Animations */
+        @keyframes certification-fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes certification-popUp {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Certifications Section -->
+<section id="certifications" class="certifications-section">
+    <div class="container">
+        <h2 class="certifications-title">CERTIFICATIONS</h2>
+
+        <!-- Certification 1 -->
+        <div class="certification-card" style="animation-delay: 0s;">
+            <div class="certification-content">
+                <h5 class="certification-title" onclick="toggleDescription(this)">IBM Data Science Professional</h5>
+                <p class="certification-description">Certified by IBM for completing the comprehensive Data Science course, focusing on Python, data analysis, and machine learning.</p>
+            </div>
+            <a href="images/certifications/IBM Data Science Professional.pdf" target="_blank" class="certification-btn-primary"><i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- Certification 2 -->
+        <div class="certification-card" style="animation-delay: 0.3s;">
+            <div class="certification-content">
+                <h5 class="certification-title" onclick="toggleDescription(this)">1Z0-071 Oracle Database SQL Associate</h5>
+                <p class="certification-description">Oracle certification focused on SQL and database management fundamentals, validating technical skills in SQL.</p>
+            </div>
+            <a href="images/certifications/1Z0-071 Oracle Database SQL Associate.pdf" target="_blank" class="certification-btn-primary"><i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- Certification 3 -->
+        <div class="certification-card" style="animation-delay: 0.6s;">
+            <div class="certification-content">
+                <h5 class="certification-title" onclick="toggleDescription(this)">1Z0-1085-23 Oracle Cloud Infrastructure Foundations Associate</h5>
+                <p class="certification-description">Recognition for understanding core Oracle Cloud Infrastructure services and concepts for foundational cloud computing.</p>
+            </div>
+            <a href="images/certifications/1Z0-1085-23 Oracle Cloud Infrastructure Foundations Associate.pdf" target="_blank" class="certification-btn-primary"><i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FontAwesome for Icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<!-- JavaScript to Toggle Descriptions -->
+<script>
+    function toggleDescription(element) {
+        const description = element.nextElementSibling;
+        if (description.style.display === "none" || description.style.display === "") {
+            description.style.display = "block";
+        } else {
+            description.style.display = "none";
+        }
+    }
+</script>
 
 </body>
 </html>
 
 <!-- Contact Me Section -->
-
+<html>
 <head>
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 	<style>
+		/* Contact Section CSS Styling*/
 		.contact-icon {
 			width: 60px;
 			height: 60px;
@@ -765,53 +1403,57 @@
 	
 		.contact-icon i {
 			font-size: 24px; /* Size of the icons */
-
 		}
 	
 		.contact-icon:hover {
-
 			transform: scale(1.1); /* Slightly enlarge the icon on hover */
 		}
 	</style>
 </head>
+<body>
 
 
-
-<!-- Contact Me Section -->
-<section id='Contact Me' class="contact-section py-5" style="background-color: #333;">
+<!-- CONTACT Section -->
+<section id="contact" class="contact-section py-5" style="background-color: #333;">
     <div class="container text-center text-white">
-        <h2 class="text-center mb-4">CONTACT ME</h2>
+        <h2 class="text-center mb-4">Get in Touch!</h2>
         <div class="row justify-content-center">
             <div class="col-md-6 text-center">
                 <p class="lead mb-4">Feel free to reach out to me on any of the following platforms:</p>
                 <div class="d-flex justify-content-center">
-					<div class="col-3 col-md-2">
-						<a href="mailto:jobsforsharanya@email.com" class="contact-icon">
-							<i class="fas fa-envelope"></i>
-						</a>
-					</div>
-					<div class="col-3 col-md-2">
-						<a href="https://linkedin.com/in/k-sharanya" target="_blank" class="contact-icon">
-							<i class="fab fa-linkedin"></i>
-						</a>
-					</div>
-					<div class="col-3 col-md-2">
-						<a href="https://github.com/mathfanatic9" target="_blank" class="contact-icon">
-							<i class="fab fa-github"></i>
-						</a>
-					</div>
-					<div class="col-3 col-md-2">
-						<a href="https://medium.com" target="_blank" class="contact-icon">
-							<i class="fab fa-medium"></i>
-						</a>
-					</div>
+                    <div class="col-3 col-md-2">
+                        <a href="mailto:jobsforsharanya@email.com" class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                    <div class="col-3 col-md-2">
+                        <a href="https://linkedin.com/in/k-sharanya" target="_blank" class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <div class="col-3 col-md-2">
+                        <a href="https://github.com/mathfanatic9" target="_blank" class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                    <div class="col-3 col-md-2">
+                        <a href="https://medium.com" target="_blank" class="contact-icon">
+                            <i class="fab fa-medium"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+</body>
+</html>
 
 
-
-
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
